@@ -1,0 +1,25 @@
+<h2>Dolgozók</h2>
+
+<label for="actCity">Szűrés településre: </label>
+<input type="text" [(ngModel)]="actCity" id="actCity"/>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Név</th>
+            <th>Település</th>
+            <th>Fizetés</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(emp of employees | empfilter:"actCity" ; track emp.id) {
+            <tr>
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.city}}</td>
+                <td>{{emp.salary}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
